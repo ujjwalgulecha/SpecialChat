@@ -103,7 +103,7 @@ public class SendMessage extends Activity {
                 String toConvert = answer;
                 String[] words;
                 String speak = "";
-                words = toConvert.split(" ");
+                words = toConvert.split("  ");
                 for(int i =0; i < words.length ; i++)
                 {
                     String[] letters;
@@ -132,7 +132,7 @@ public class SendMessage extends Activity {
                 String toConvert = answer;
                 String[] words;
                 String speak = "";
-                words = toConvert.split(" ");
+                words = toConvert.split("  ");
                 for(int i =0; i < words.length ; i++)
                 {
                     String[] letters;
