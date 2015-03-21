@@ -5,13 +5,41 @@
     android:background="#000000">
 
 
-    <TextView
-        android:layout_marginTop="80dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="30dp"
-        android:text="Send Message" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton"
+            android:layout_row="0"
+            android:useDefaultMargins="true"
+            android:layout_column="0" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton2"
+            android:layout_row="0"
+            android:useDefaultMargins="true"
+            android:layout_column="1" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton3"
+            android:layout_row="1"
+            android:useDefaultMargins="true"
+            android:layout_column="0" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton4"
+            android:layout_row="1"
+            android:useDefaultMargins="true"
+            android:layout_column="1" />
+    </GridLayout>
 </LinearLayout>
