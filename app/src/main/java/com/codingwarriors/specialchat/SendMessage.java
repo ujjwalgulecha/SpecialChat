@@ -79,7 +79,7 @@ public class SendMessage extends Activity {
                 String toConvert = answer;
                 String[] temporary;
                 String speak = "";
-                temporary = toConvert.split(" ");
+                temporary = toConvert.split("  ");
                 for(int i =0; i < temporary.length ; i++)
                 {
                     String[] temporary2;

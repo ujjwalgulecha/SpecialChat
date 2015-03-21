@@ -42,7 +42,6 @@
             android:layout_weight="1"
             android:onClick="DeleteClick"
             android:id="@+id/DeleteButton"/>
-<<<<<<< HEAD
     </LinearLayout>
     <Button
         android:layout_width="wrap_content"
@@ -51,8 +50,3 @@
         android:onClick="speakText"
         android:text="Talk"/>
 </LinearLayout>
-=======
-        </LinearLayout>
-
-</LinearLayout>
->>>>>>> 3084385ac52b9f6004d4e25f7a337819165e2541
