@@ -90,31 +90,8 @@ public class SendMessage extends Activity {
         space.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                String toConvert = answer;
-                String[] words;
-                String speak = "";
-                words = toConvert.split("  ");
-                for(int i = 0; i < words.length ; i++)
-                {
-                    String[] letters;
-                    String delimiter2 = " ";
-                    letters = words[i].split(delimiter2);
-                    for(int j=0;j<letters.length;j++)
-                    {
-                        speak += codes.get(letters[j]);
-                    }
-                    speak+=" ";
-                }
-
-                //String toSpeak = write.getText().toString();
-                Toast.makeText(getApplicationContext(), speak,
-                        Toast.LENGTH_SHORT).show();
-                ttobj.speak(speak, TextToSpeech.QUEUE_FLUSH, null);
-                //sendSMS(String phoneNumber, String message)
-                SMS sender = new SMS();
-                String phno = "9008080135";
-                sender.sendSMS(phno,speak);
-                answer= "";
+                Intent i = new Intent(SendMessage.this,MainActivity.class);
+                startActivity(i);
                 return true;
             }
         });
