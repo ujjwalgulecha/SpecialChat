@@ -1,5 +1,4 @@
 package com.codingwarriors.specialchat;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +7,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import java.util.HashMap;
 import java.util.Locale;
-
 /**
  * Created by Ujjwal on 21-03-2015.
  */
@@ -21,9 +18,7 @@ public class SendMessage extends Activity {
     Button dot,dash,del,space;
     HashMap<String, String> codes = new HashMap<String, String>();
     TextToSpeech ttobj;
-
     public String answer ="";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,12 +60,10 @@ public class SendMessage extends Activity {
         codes.put("-.--", "y");
         codes.put("--..", "z");
         codes.put(" ", " ");
-
         dot = (Button)findViewById(R.id.DotButton);
         dash = (Button)findViewById(R.id.DashButton);
         del = (Button)findViewById(R.id.DeleteButton);
         space = (Button)findViewById(R.id.SpaceButton);
-
         ttobj=new TextToSpeech(getApplicationContext(),
                 new TextToSpeech.OnInitListener() {
                     @Override
@@ -80,13 +73,11 @@ public class SendMessage extends Activity {
                         }
                     }
                 });
-
         space.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 String toConvert = answer;
                 String[] temporary;
-
                 String speak = "";
                 temporary = toConvert.split("  ");
                 for(int i =0; i < temporary.length ; i++)
@@ -100,7 +91,7 @@ public class SendMessage extends Activity {
                     }
                     speak+=" ";
                 }
-                //String toSpeak = write.getText().toString();
+//String toSpeak = write.getText().toString();
                 Toast.makeText(getApplicationContext(), speak,
                         Toast.LENGTH_SHORT).show();
                 ttobj.speak(speak, TextToSpeech.QUEUE_FLUSH, null);
@@ -108,15 +99,13 @@ public class SendMessage extends Activity {
                 return true;
             }
         });
-
         dot.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 String toConvert = answer;
                 String[] temporary;
-
                 String speak = "";
-                temporary = toConvert.split("  ");
+                temporary = toConvert.split(" ");
                 for(int i =0; i < temporary.length ; i++)
                 {
                     String[] temporary2;
@@ -128,7 +117,7 @@ public class SendMessage extends Activity {
                     }
                     speak+=" ";
                 }
-                //String toSpeak = write.getText().toString();
+//String toSpeak = write.getText().toString();
                 Toast.makeText(getApplicationContext(), speak,
                         Toast.LENGTH_SHORT).show();
                 ttobj.speak(speak, TextToSpeech.QUEUE_FLUSH, null);
@@ -136,15 +125,13 @@ public class SendMessage extends Activity {
                 return true;
             }
         });
-
         dash.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 String toConvert = answer;
                 String[] temporary;
-
                 String speak = "";
-                temporary = toConvert.split("  ");
+                temporary = toConvert.split(" ");
                 for(int i =0; i < temporary.length ; i++)
                 {
                     String[] temporary2;
@@ -156,7 +143,7 @@ public class SendMessage extends Activity {
                     }
                     speak+=" ";
                 }
-                //String toSpeak = write.getText().toString();
+//String toSpeak = write.getText().toString();
                 Toast.makeText(getApplicationContext(), speak,
                         Toast.LENGTH_SHORT).show();
                 ttobj.speak(speak, TextToSpeech.QUEUE_FLUSH, null);
@@ -164,7 +151,6 @@ public class SendMessage extends Activity {
                 return true;
             }
         });
-
         del.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -172,9 +158,6 @@ public class SendMessage extends Activity {
                 return true;
             }
         });
-
-
-
     }
     @Override
     public void onPause(){
@@ -184,13 +167,11 @@ public class SendMessage extends Activity {
         }
         super.onPause();
     }
-
-
     public boolean onTouchEvent(MotionEvent touchevent)
     {
         switch (touchevent.getAction())
         {
-            // when user first touches the screen we get x and y coordinate
+// when user first touches the screen we get x and y coordinate
             case MotionEvent.ACTION_DOWN:
             {
                 x1 = touchevent.getX();
@@ -201,16 +182,12 @@ public class SendMessage extends Activity {
             {
                 x2 = touchevent.getX();
                 y2 = touchevent.getY();
-
-
-                /*if (x1 < x2)
-                {
-                    Toast.makeText(this, "Left to Right Swap Performed", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(this,SendMessage.class);
-                    startActivity(i);
-                }*/
-
-
+/*if (x1 < x2)
+{
+Toast.makeText(this, "Left to Right Swap Performed", Toast.LENGTH_SHORT).show();
+Intent i = new Intent(this,SendMessage.class);
+startActivity(i);
+}*/
                 if (x1 > x2)
                 {
                     Toast.makeText(this, "Back Home", Toast.LENGTH_SHORT).show();
@@ -222,19 +199,15 @@ public class SendMessage extends Activity {
         }
         return false;
     }
-
     public void DotClick(View view) {
         answer+=".";
     }
-
     public void DashClick(View view) {
         answer+="-";
     }
-
     public void SpaceClick(View view) {
         answer+=" ";
     }
-
     public void DeleteClick(View view) {
         String abc = answer.substring(0,answer.length()-1);
         answer = abc;
