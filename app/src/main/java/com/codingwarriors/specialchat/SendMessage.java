@@ -23,6 +23,16 @@ public class SendMessage extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sendmessagelayout);
+        codes.put(".----", "1");
+        codes.put("..---", "2");
+        codes.put("...--", "3");
+        codes.put("....-", "4");
+        codes.put(".....", "5");
+        codes.put("-....", "6");
+        codes.put("--...", "7");
+        codes.put("---..", "8");
+        codes.put("----.", "9");
+        codes.put("-----", "0");
         codes.put(".-", "a");
         codes.put("-...", "b");
         codes.put("-.-.", "c");
@@ -49,6 +59,7 @@ public class SendMessage extends Activity {
         codes.put("-..-", "x");
         codes.put("-.--", "y");
         codes.put("--..", "z");
+        codes.put(" ", " ");
         dot = (Button)findViewById(R.id.DotButton);
         dash = (Button)findViewById(R.id.DashButton);
         del = (Button)findViewById(R.id.DeleteButton);
@@ -67,12 +78,18 @@ public class SendMessage extends Activity {
             public boolean onLongClick(View v) {
                 String toConvert = answer;
                 String[] temporary;
-                String delimiter = " ";
                 String speak = "";
-                temporary = toConvert.split(delimiter);
+                temporary = toConvert.split(" ");
                 for(int i =0; i < temporary.length ; i++)
                 {
-                    speak +=codes.get(temporary[i]);
+                    String[] temporary2;
+                    String delimiter2 = " ";
+                    temporary2 = temporary[i].split(delimiter2);
+                    for(int j=0;j<temporary2.length;j++)
+                    {
+                        speak += codes.get(temporary2[j]);
+                    }
+                    speak+=" ";
                 }
 //String toSpeak = write.getText().toString();
                 Toast.makeText(getApplicationContext(), speak,
@@ -87,12 +104,18 @@ public class SendMessage extends Activity {
             public boolean onLongClick(View v) {
                 String toConvert = answer;
                 String[] temporary;
-                String delimiter = " ";
                 String speak = "";
-                temporary = toConvert.split(delimiter);
+                temporary = toConvert.split(" ");
                 for(int i =0; i < temporary.length ; i++)
                 {
-                    speak +=codes.get(temporary[i]);
+                    String[] temporary2;
+                    String delimiter2 = " ";
+                    temporary2 = temporary[i].split(delimiter2);
+                    for(int j=0;j<temporary2.length;j++)
+                    {
+                        speak += codes.get(temporary2[j]);
+                    }
+                    speak+=" ";
                 }
 //String toSpeak = write.getText().toString();
                 Toast.makeText(getApplicationContext(), speak,
@@ -107,12 +130,18 @@ public class SendMessage extends Activity {
             public boolean onLongClick(View v) {
                 String toConvert = answer;
                 String[] temporary;
-                String delimiter = " ";
                 String speak = "";
-                temporary = toConvert.split(delimiter);
+                temporary = toConvert.split(" ");
                 for(int i =0; i < temporary.length ; i++)
                 {
-                    speak +=codes.get(temporary[i]);
+                    String[] temporary2;
+                    String delimiter2 = " ";
+                    temporary2 = temporary[i].split(delimiter2);
+                    for(int j=0;j<temporary2.length;j++)
+                    {
+                        speak += codes.get(temporary2[j]);
+                    }
+                    speak+=" ";
                 }
 //String toSpeak = write.getText().toString();
                 Toast.makeText(getApplicationContext(), speak,
