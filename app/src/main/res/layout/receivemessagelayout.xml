@@ -1,17 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="vertical" android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="#000000">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}"
+    android:background="#99CC00"
+    >
 
+    <TextView
+        android:id="@+id/sms_sender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/sms_label"
+        android:textColor="#ffffff"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
-<TextView
-    android:layout_marginTop="80dp"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:textStyle="bold"
-    android:gravity="center"
-    android:textColor="#FFFFFF"
-    android:textSize="30dp"
-    android:text="Recieve Message" />
-</LinearLayout>
+    <TextView
+        android:id="@+id/sms_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sms_sender"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/none"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff"
+        />
+
+    <ToggleButton
+        android:id="@+id/speechToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textOff="@string/speech_toggle_on"
+        android:textOn="@string/speech_toggle_off"
+        />
+
+</RelativeLayout>
