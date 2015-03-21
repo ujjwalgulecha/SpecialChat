@@ -1,45 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:background="#000000">
-
-
-    <GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal">
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton"
-            android:layout_row="0"
-            android:useDefaultMargins="true"
-            android:layout_column="0" />
+            android:text="."
+            android:layout_weight="1"
+            android:onClick="DotClick"
+            android:id="@+id/DotButton" />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="-"
+            android:onClick="DashClick"
+            android:layout_weight="1"
+            android:id="@+id/DashButton"/>
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton2"
-            android:layout_row="0"
-            android:useDefaultMargins="true"
-            android:layout_column="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton3"
-            android:layout_row="1"
-            android:useDefaultMargins="true"
-            android:layout_column="0" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton4"
-            android:layout_row="1"
-            android:useDefaultMargins="true"
-            android:layout_column="1" />
-    </GridLayout>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="Space"
+            android:layout_weight="1"
+            android:onClick="SpaceClick"
+            android:id="@+id/SpaceButton"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="Del"
+            android:layout_weight="1"
+            android:onClick="DeleteClick"
+            android:id="@+id/DeleteButton"/>
+        </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SpeakText"
+        android:onClick="speakText"
+        android:text="Talk"/>
 </LinearLayout>
