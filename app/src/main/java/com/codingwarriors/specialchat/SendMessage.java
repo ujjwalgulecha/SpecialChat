@@ -187,7 +187,7 @@ public class SendMessage extends Activity {
     }
 
 
-    @Override
+    /*@Override
     public void onPause(){
         if(ttobj !=null){
             ttobj.stop();
@@ -195,7 +195,7 @@ public class SendMessage extends Activity {
         }
         super.onPause();
     }
-
+*/
 
     public boolean onTouchEvent(MotionEvent touchevent)
     {
