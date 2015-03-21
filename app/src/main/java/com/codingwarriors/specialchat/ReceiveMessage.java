@@ -119,11 +119,4 @@ public class ReceiveMessage extends Activity {
         initializeSMSReceiver();
         registerSMSReceiver();
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unregisterReceiver(smsReceiver);
-        speaker.destroy();
-    }
 }
