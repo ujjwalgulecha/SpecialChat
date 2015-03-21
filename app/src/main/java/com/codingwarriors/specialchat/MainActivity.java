@@ -37,7 +37,7 @@ public class MainActivity extends Activity
                 y2 = touchevent.getY();
 
 
-                if (x1 < x2)
+                if (x1 < x2 && (x2-x1)>(y2-y1))
                 {
                     Toast.makeText(this, "Left to Right Swap Performed", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(this,SendMessage.class);
@@ -45,12 +45,20 @@ public class MainActivity extends Activity
                 }
 
 
-                if (x1 > x2)
+                else if (x1 > x2 && (x1-x2)>(y1-y2))
                 {
                     Toast.makeText(this, "Right to Left Swap Performed", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(this,ReceiveMessage.class);
                     startActivity(i);
                 }
+
+                else if (y2 > y1 && (y2-y1)>(x2-x1))
+                {
+                    Toast.makeText(this, "Swipe Down", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(this,VoiceToText.class);
+                    startActivity(i);
+                }
+
                 break;
             }
         }

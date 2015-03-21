@@ -3,4 +3,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="speech_not_supported">Sorry it does not support</string>
+    <string name="speech_prompt">Say Something!</string>
 </resources>
