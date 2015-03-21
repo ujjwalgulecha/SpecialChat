@@ -69,6 +69,80 @@ public class SendMessage extends Activity {
                         }
                     }
                 });
+
+        space.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                String toConvert = answer;
+                String[] temporary;
+                String delimiter = " ";
+                String speak = "";
+                temporary = toConvert.split(delimiter);
+                for(int i =0; i < temporary.length ; i++)
+                {
+                    speak +=codes.get(temporary[i]);
+                }
+                //String toSpeak = write.getText().toString();
+                Toast.makeText(getApplicationContext(), speak,
+                        Toast.LENGTH_SHORT).show();
+                ttobj.speak(speak, TextToSpeech.QUEUE_FLUSH, null);
+                answer= "";
+                return true;
+            }
+        });
+
+        dot.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                String toConvert = answer;
+                String[] temporary;
+                String delimiter = " ";
+                String speak = "";
+                temporary = toConvert.split(delimiter);
+                for(int i =0; i < temporary.length ; i++)
+                {
+                    speak +=codes.get(temporary[i]);
+                }
+                //String toSpeak = write.getText().toString();
+                Toast.makeText(getApplicationContext(), speak,
+                        Toast.LENGTH_SHORT).show();
+                ttobj.speak(speak, TextToSpeech.QUEUE_FLUSH, null);
+                answer= "";
+                return true;
+            }
+        });
+
+        dash.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                String toConvert = answer;
+                String[] temporary;
+                String delimiter = " ";
+                String speak = "";
+                temporary = toConvert.split(delimiter);
+                for(int i =0; i < temporary.length ; i++)
+                {
+                    speak +=codes.get(temporary[i]);
+                }
+                //String toSpeak = write.getText().toString();
+                Toast.makeText(getApplicationContext(), speak,
+                        Toast.LENGTH_SHORT).show();
+                ttobj.speak(speak, TextToSpeech.QUEUE_FLUSH, null);
+                answer= "";
+                return true;
+            }
+        });
+
+        del.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                answer= "";
+                return true;
+            }
+        });
+
+
+
     }
     @Override
     public void onPause(){
@@ -115,23 +189,6 @@ public class SendMessage extends Activity {
             }
         }
         return false;
-    }
-    public void speakText(View view){
-        String toConvert = answer;
-        String[] temporary;
-        String delimiter = " ";
-        String speak = "";
-        temporary = toConvert.split(delimiter);
-        for(int i =0; i < temporary.length ; i++)
-        {
-            speak +=codes.get(temporary[i]);
-        }
-        //String toSpeak = write.getText().toString();
-        Toast.makeText(getApplicationContext(), speak,
-                Toast.LENGTH_SHORT).show();
-        ttobj.speak(speak, TextToSpeech.QUEUE_FLUSH, null);
-        answer= "";
-
     }
 
     public void DotClick(View view) {
