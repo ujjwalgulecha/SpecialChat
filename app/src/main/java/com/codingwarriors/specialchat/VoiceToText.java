@@ -19,7 +19,8 @@ import java.util.Locale;
  * Created by Ujjwal on 21-03-2015.
  */
 public class VoiceToText extends Activity {
-    private TextView txtSpeechInput;
+
+    public String p;
     private Button btnSpeak;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     TextToSpeech ttobj;
@@ -30,7 +31,7 @@ public class VoiceToText extends Activity {
         setContentView(R.layout.voicetotextlayout);
 
         btnSpeak = (Button)findViewById(R.id.btnSpeak);
-        txtSpeechInput = (TextView)findViewById(R.id.txtSpeechInput);
+
 
         ttobj=new TextToSpeech(getApplicationContext(),
                 new TextToSpeech.OnInitListener() {
@@ -73,12 +74,11 @@ public class VoiceToText extends Activity {
             case REQ_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && null != data) {
 
+
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    txtSpeechInput.setText(result.get(0));
-                    String temp = txtSpeechInput.getText().toString();
-                    Toast.makeText(getApplicationContext(),temp,Toast.LENGTH_SHORT).show();
-                    ttobj.speak(temp, TextToSpeech.QUEUE_FLUSH, null);
+                    p = result.get(0);
+
 
                 }
                 break;
@@ -101,6 +101,12 @@ public class VoiceToText extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    public void SpeakClick(View view) {
+        Intent i = new Intent(this,VoiceToText2.class);
+        i.putExtra("p",p);
+        startActivity(i);
     }
 }
 

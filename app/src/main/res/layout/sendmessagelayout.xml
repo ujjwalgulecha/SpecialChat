@@ -43,10 +43,5 @@
             android:onClick="DeleteClick"
             android:id="@+id/DeleteButton"/>
     </LinearLayout>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/SpeakText"
-        android:onClick="speakText"
-        android:text="Talk"/>
+
 </LinearLayout>

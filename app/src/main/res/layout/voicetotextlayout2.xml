@@ -11,10 +11,10 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="Speak"
+            android:text="Del"
             android:layout_weight="1"
             android:onClick="SpeakClick"
-            android:id="@+id/btnRepeat" />
+            android:id="@+id/DelButton" />
 
     </LinearLayout>
     <LinearLayout
@@ -25,10 +25,10 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="Record"
+            android:text="Send"
             android:layout_weight="1"
-
-            android:id="@+id/btnSpeak"/>
+            android:onClick="SendClick"
+            android:id="@+id/voicesend"/>
 
     </LinearLayout>
 
