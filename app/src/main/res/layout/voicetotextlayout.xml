@@ -11,17 +11,11 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="."
+            android:text="Speak"
             android:layout_weight="1"
-            android:onClick="DotClick"
-            android:id="@+id/DotButton" />
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="-"
-            android:onClick="DashClick"
-            android:layout_weight="1"
-            android:id="@+id/DashButton"/>
+            android:onClick="SpeakClick"
+            android:id="@+id/btnRepeat" />
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,17 +25,11 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="Space"
+            android:text="Record"
             android:layout_weight="1"
-            android:onClick="SpaceClick"
-            android:id="@+id/SpaceButton"/>
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="Del"
-            android:layout_weight="1"
-            android:onClick="DeleteClick"
-            android:id="@+id/DeleteButton"/>
+
+            android:id="@+id/btnSpeak"/>
+
     </LinearLayout>
 
 </LinearLayout>

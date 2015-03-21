@@ -13,7 +13,7 @@
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="30dp"
-        android:text="Detect Swap Event Demo" />
+        android:text="Special Chat" />
 
 
 </LinearLayout>
