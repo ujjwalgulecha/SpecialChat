@@ -2,6 +2,7 @@ package com.codingwarriors.specialchat;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.InstrumentationInfo;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.MotionEvent;
@@ -15,19 +16,21 @@ import java.util.Locale;
 /**
  * Created by Ujjwal on 21-03-2015.
  */
+
 public class SendMessage extends Activity {
     float x1,x2;
     float y1, y2;
     Button dot,dash,del,space;
     HashMap<String, String> codes = new HashMap<String, String>();
     TextToSpeech ttobj;
-
     public String answer ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sendmessagelayout);
+
+        //Morse code conversion standard
         codes.put(".----", "1");
         codes.put("..---", "2");
         codes.put("...--", "3");
@@ -66,11 +69,13 @@ public class SendMessage extends Activity {
         codes.put("--..", "z");
         codes.put(" ", " ");
 
+        //Buttons defined by ID
         dot = (Button)findViewById(R.id.DotButton);
         dash = (Button)findViewById(R.id.DashButton);
         del = (Button)findViewById(R.id.DeleteButton);
         space = (Button)findViewById(R.id.SpaceButton);
 
+        //configuring text to speech
         ttobj=new TextToSpeech(getApplicationContext(),
                 new TextToSpeech.OnInitListener() {
                     @Override
@@ -81,53 +86,59 @@ public class SendMessage extends Activity {
                     }
                 });
 
+        //On long clicks space to invoke text to speech method
         space.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 String toConvert = answer;
-                String[] temporary;
-
+                String[] words;
                 String speak = "";
-                temporary = toConvert.split("  ");
-                for(int i =0; i < temporary.length ; i++)
+                words = toConvert.split("  ");
+                for(int i = 0; i < words.length ; i++)
                 {
-                    String[] temporary2;
+                    String[] letters;
                     String delimiter2 = " ";
-                    temporary2 = temporary[i].split(delimiter2);
-                    for(int j=0;j<temporary2.length;j++)
+                    letters = words[i].split(delimiter2);
+                    for(int j=0;j<letters.length;j++)
                     {
-                        speak += codes.get(temporary2[j]);
+                        speak += codes.get(letters[j]);
                     }
                     speak+=" ";
                 }
+
                 //String toSpeak = write.getText().toString();
                 Toast.makeText(getApplicationContext(), speak,
                         Toast.LENGTH_SHORT).show();
                 ttobj.speak(speak, TextToSpeech.QUEUE_FLUSH, null);
+                //sendSMS(String phoneNumber, String message)
+                SMS sender = new SMS();
+                String phno = "9008080135";
+                sender.sendSMS(phno,speak);
                 answer= "";
                 return true;
             }
         });
 
+        //On long clicks dot to invoke text to speech method
         dot.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 String toConvert = answer;
-                String[] temporary;
-
+                String[] words;
                 String speak = "";
-                temporary = toConvert.split("  ");
-                for(int i =0; i < temporary.length ; i++)
+                words = toConvert.split(" ");
+                for(int i =0; i < words.length ; i++)
                 {
-                    String[] temporary2;
+                    String[] letters;
                     String delimiter2 = " ";
-                    temporary2 = temporary[i].split(delimiter2);
-                    for(int j=0;j<temporary2.length;j++)
+                    letters = words[i].split(delimiter2);
+                    for(int j=0;j<letters.length;j++)
                     {
-                        speak += codes.get(temporary2[j]);
+                        speak += codes.get(letters[j]);
                     }
                     speak+=" ";
                 }
+
                 //String toSpeak = write.getText().toString();
                 Toast.makeText(getApplicationContext(), speak,
                         Toast.LENGTH_SHORT).show();
@@ -137,22 +148,22 @@ public class SendMessage extends Activity {
             }
         });
 
+        //On long clicks dash to invoke text to speech method
         dash.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 String toConvert = answer;
-                String[] temporary;
-
+                String[] words;
                 String speak = "";
-                temporary = toConvert.split("  ");
-                for(int i =0; i < temporary.length ; i++)
+                words = toConvert.split(" ");
+                for(int i =0; i < words.length ; i++)
                 {
-                    String[] temporary2;
+                    String[] letters;
                     String delimiter2 = " ";
-                    temporary2 = temporary[i].split(delimiter2);
-                    for(int j=0;j<temporary2.length;j++)
+                    letters = words[i].split(delimiter2);
+                    for(int j=0;j<letters.length;j++)
                     {
-                        speak += codes.get(temporary2[j]);
+                        speak += codes.get(letters[j]);
                     }
                     speak+=" ";
                 }
@@ -165,6 +176,7 @@ public class SendMessage extends Activity {
             }
         });
 
+        //Clear message when delet is long pressed
         del.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -172,10 +184,9 @@ public class SendMessage extends Activity {
                 return true;
             }
         });
-
-
-
     }
+
+
     @Override
     public void onPause(){
         if(ttobj !=null){
@@ -190,7 +201,7 @@ public class SendMessage extends Activity {
     {
         switch (touchevent.getAction())
         {
-            // when user first touches the screen we get x and y coordinate
+// when user first touches the screen we get x and y coordinate
             case MotionEvent.ACTION_DOWN:
             {
                 x1 = touchevent.getX();
@@ -201,16 +212,12 @@ public class SendMessage extends Activity {
             {
                 x2 = touchevent.getX();
                 y2 = touchevent.getY();
-
-
-                /*if (x1 < x2)
-                {
-                    Toast.makeText(this, "Left to Right Swap Performed", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(this,SendMessage.class);
-                    startActivity(i);
-                }*/
-
-
+/*if (x1 < x2)
+{
+Toast.makeText(this, "Left to Right Swap Performed", Toast.LENGTH_SHORT).show();
+Intent i = new Intent(this,SendMessage.class);
+startActivity(i);
+}*/
                 if (x1 > x2)
                 {
                     Toast.makeText(this, "Back Home", Toast.LENGTH_SHORT).show();
@@ -222,19 +229,15 @@ public class SendMessage extends Activity {
         }
         return false;
     }
-
     public void DotClick(View view) {
         answer+=".";
     }
-
     public void DashClick(View view) {
         answer+="-";
     }
-
     public void SpaceClick(View view) {
         answer+=" ";
     }
-
     public void DeleteClick(View view) {
         String abc = answer.substring(0,answer.length()-1);
         answer = abc;
