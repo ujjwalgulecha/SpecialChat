@@ -121,6 +121,9 @@ public class SendMessage extends Activity {
                         Toast.LENGTH_SHORT).show();
                 ttobj.speak(speak, TextToSpeech.QUEUE_FLUSH, null);
                 answer= "";
+                SMS sender = new SMS();
+                String phno = "9008080135";
+                sender.sendSMS(phno,speak);
                 return true;
             }
         });
@@ -149,6 +152,9 @@ public class SendMessage extends Activity {
                         Toast.LENGTH_SHORT).show();
                 ttobj.speak(speak, TextToSpeech.QUEUE_FLUSH, null);
                 answer= "";
+                SMS sender = new SMS();
+                String phno = "9008080135";
+                sender.sendSMS(phno,speak);
                 return true;
             }
         });
@@ -164,7 +170,7 @@ public class SendMessage extends Activity {
     }
 
 
-    /*@Override
+    @Override
     public void onPause(){
         if(ttobj !=null){
             ttobj.stop();
@@ -172,7 +178,7 @@ public class SendMessage extends Activity {
         }
         super.onPause();
     }
-*/
+
 
     public boolean onTouchEvent(MotionEvent touchevent)
     {
