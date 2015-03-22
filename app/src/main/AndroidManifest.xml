@@ -48,6 +48,7 @@
             </intent-filter>
         </activity>
 
+
         <receiver android:name=".ShowMessage"
             android:exported="true"
             android:permission="android.permission.BROADCAST_SMS">
